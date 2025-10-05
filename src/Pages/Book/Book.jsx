@@ -1,12 +1,13 @@
 import { Star } from "lucide-react";
 import React from "react";
+import { Link } from "react-router";
 
 const Book = ({ eachData }) => {
   //   console.log(eachData);
 
   return (
-    <div>
-      <div className="border-2 rounded-2xl border-dotted p-6 ">
+    <Link to={`/bookDetails/${eachData.bookId}`}>
+      <div className="rounded-2xl border-dotted p-6 shadow-2xl">
         <div className="border-b-2  border-dotted text-xl ">
           <div className="bg-[#13131330] flex justify-center rounded-2xl">
             <img className="w-40 h-80 p-3 py-10" src={eachData.image} alt="" />
@@ -31,7 +32,7 @@ const Book = ({ eachData }) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
