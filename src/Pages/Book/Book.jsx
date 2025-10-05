@@ -3,8 +3,6 @@ import React from "react";
 import { Link } from "react-router";
 
 const Book = ({ eachData }) => {
-  //   console.log(eachData);
-
   return (
     <Link to={`/bookDetails/${eachData.bookId}`}>
       <div className="rounded-2xl border-dotted p-6 shadow-2xl">

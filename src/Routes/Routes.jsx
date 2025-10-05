@@ -5,6 +5,7 @@ import Banner from "../Pages/Banner/Banner";
 import Home from "../Pages/Home/Home";
 import axios from "axios";
 import BookDetails from "../Pages/BookDetails/BookDetails";
+import ListedBooks from "../Pages/ListedBooks/ListedBooks";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ export const router = createBrowserRouter([
         path: "/bookDetails/:id",
         loader: () => axios("/booksData.json"),
         Component: BookDetails,
+      },
+      {
+        path: "/listedBooks",
+        loader: () => axios("/booksData.json"),
+        Component: ListedBooks,
       },
     ],
   },

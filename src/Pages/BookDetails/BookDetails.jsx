@@ -1,10 +1,14 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
+import { addToLocalStorage } from "../../utilites/localStorageData";
 
 const BookDetails = () => {
   const { data } = useLoaderData();
   const { id } = useParams();
   const bookClicked = data.find((book) => book.bookId === parseInt(id));
+  const handleReadList = (id) => {
+    addToLocalStorage(id);
+  };
   return (
     <div className="lg:flex gap-20 justify-center items-center min-h-screen md:px-4">
       <div className="lg:w-1/2 bg-[#13131330] flex justify-center rounded-2xl items-center h-100 lg:h-200 ">
@@ -52,7 +56,10 @@ const BookDetails = () => {
         </div>
         <div className="flex gap-4 mt-6">
           <button className="btn p-5 rounded-xl text-xl ">Wishlist</button>
-          <button className="btn p-5 rounded-xl text-xl bg-blue-500">
+          <button
+            onClick={() => handleReadList(id)}
+            className="btn p-5 rounded-xl text-xl bg-blue-500"
+          >
             Read
           </button>
         </div>
